@@ -25,7 +25,7 @@ public class DeepFinder {
                 });
 
 
-       // run weith Finder
+       // run weigh search
         FinderIMPL.weighFinder(0, 15, graph);
     }
 }

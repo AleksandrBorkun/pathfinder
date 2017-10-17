@@ -3,7 +3,6 @@ package pathfinder;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Queue;
-import java.util.Stack;
 
 public class FinderIMPL {
 
@@ -12,35 +11,8 @@ public class FinderIMPL {
     private static Vertex[] vertexArray;
     private static int[][] matrix;
     private static int  count;
-    private static int resCounter;
-    // реализация обхода в глубину
-    public static void deedFinder(int v, Graph someGraph) {
-        insertValues(someGraph);
-        Stack<Integer> stack = new Stack<>();
-        System.out.print("start the deep search: " + vertexArray[v].getLabel() + " -> ");
-        vertexArray[v].setVisited(true);
-        stack.push(v);
-        while (!stack.isEmpty()) {
-            int adjVertex = getUnvisitedVertex((int) stack.peek());
-            if (adjVertex == -1) {
-                stack.pop();
-                System.out.println();
-            } else {
-                vertexArray[adjVertex].setVisited(true);
-                System.out.print(vertexArray[adjVertex].getLabel() + " -> ");
-                stack.push(adjVertex);
-            }
-        }
 
-        for (int i = 0; i < vertexArray.length && vertexArray[i] != null; i++)
-            vertexArray[i].setVisited(false);
-        System.out.println();
-        for (int i = 0; i < matrix.length; i++) {
-            System.out.println(Arrays.toString(matrix[i]));
-        }
-    }
-
-    // реализация обхода в ширину
+   // weigh search
     public static void weighFinder(int v, int end, Graph someGraph) {
         insertValues(someGraph);
         System.out.print("start the weigh search: " + vertexArray[v].getLabel() + " -> ");
@@ -58,7 +30,6 @@ public class FinderIMPL {
             while (true) {
                 if ((vertex = getUnvisitedVertex(currentVertex)) != -1) {
                     resultMatrix[vertex] = getBiggestNeighbour(vertex) + 1;
-                    resCounter = resultMatrix[vertex];
                     if (vertex == end) {
                         break;
                     }
@@ -132,6 +103,36 @@ public class FinderIMPL {
         }
         return biggest;
     }
+
+        /* deep search *** need improve ***
+    public static void deedFinder(int v, Graph someGraph) {
+        insertValues(someGraph);
+        Stack<Integer> stack = new Stack<>();
+        System.out.print("start the deep search: " + vertexArray[v].getLabel() + " -> ");
+        vertexArray[v].setVisited(true);
+        stack.push(v);
+        while (!stack.isEmpty()) {
+            int adjVertex = getUnvisitedVertex((int) stack.peek());
+            if (adjVertex == -1) {
+                stack.pop();
+                System.out.println();
+            } else {
+                vertexArray[adjVertex].setVisited(true);
+                System.out.print(vertexArray[adjVertex].getLabel() + " -> ");
+                stack.push(adjVertex);
+            }
+        }
+
+        for (int i = 0; i < vertexArray.length && vertexArray[i] != null; i++)
+            vertexArray[i].setVisited(false);
+        System.out.println();
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println(Arrays.toString(matrix[i]));
+        }
+    }
+    */
+
+
 
 }
 
