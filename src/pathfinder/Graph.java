@@ -64,24 +64,12 @@ public class Graph {
         return vertexArray;
     }
 
-    public void setVertexArray(Vertex[] vertexArray) {
-        this.vertexArray = vertexArray;
-    }
-
     public int[][] getMatrix() {
         return matrix;
     }
 
-    public void setMatrix(int[][] matrix) {
-        this.matrix = matrix;
-    }
-
     public int getCount() {
         return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 
 
@@ -89,8 +77,26 @@ public class Graph {
         return resultMatrix;
     }
 
-    public void setResultMatrix(int[] resultMatrix) {
-        this.resultMatrix = resultMatrix;
+
+    public void generateAdjacency(int[][] visualMap) {
+        int len = visualMap.length;
+
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                if (i != 0 && visualMap[i - 1][j] != 0 && visualMap[i][j] != 0) {
+                    insertEdge(len * (i - 1) + j, len * i + j);
+                }
+                if(j == len-1)
+                    continue;
+                if (visualMap[i][j] != 0 && visualMap[i][j + 1] != 0) {
+                    insertEdge(len * i + j, len * i + j + 1);
+                }
+            }
+        }
+
+//        for (int i = 0; i < matrix.length; i++) {
+//            System.out.println(Arrays.toString(matrix[i]));
+//        }
     }
 
 

@@ -12,7 +12,7 @@ public class FinderIMPL {
     private static Vertex[] vertexArray;
     private static int[][] matrix;
     private static int  count;
-
+    private static int resCounter;
     // реализация обхода в глубину
     public static void deedFinder(int v, Graph someGraph) {
         insertValues(someGraph);
@@ -57,8 +57,8 @@ public class FinderIMPL {
 
             while (true) {
                 if ((vertex = getUnvisitedVertex(currentVertex)) != -1) {
-                    int resCounter = getBiggestNeighbour(vertex);
                     resultMatrix[vertex] = getBiggestNeighbour(vertex) + 1;
+                    resCounter = resultMatrix[vertex];
                     if (vertex == end) {
                         break;
                     }
@@ -124,7 +124,7 @@ public class FinderIMPL {
 
     private static int getBiggestNeighbour(int val) {
         int[] neighbor = graph.getNeighbours(matrix[val]);
-        int biggest = resultMatrix[neighbor[0]];
+        int biggest = resultMatrix[neighbor[0]] == 1000 ? 0 : resultMatrix[neighbor[0]];
         for (int i = 0; i < neighbor.length - 1; i++) {
             if (resultMatrix[neighbor[i + 1]] > biggest && resultMatrix[neighbor[i + 1]] != 1000) {
                 biggest = resultMatrix[neighbor[i + 1]];
