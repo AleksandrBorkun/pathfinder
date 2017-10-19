@@ -28,7 +28,7 @@ public class DeepFinder {
 
 
 
-        WeighPathFinder.findPath(0, 45 , graph).forEach(System.out::print);
+        WeighPathFinder.findPath(0, 45 , graph).forEach(System.out::println);
 
 
 
