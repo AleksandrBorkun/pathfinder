@@ -4,7 +4,7 @@ public class DeepFinder {
 
     /*
 
-        Here we check the path to 15 element from 0 in 25*25 square
+        Here we check the path to 45th element from 0 in 9*9 square
 
         the 0 elements is blocked , so we cant go there
 
