@@ -1,14 +1,10 @@
-package pathfinder;
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
+package com.ab.algorythm.trash;
 
 public class Graph {
 
+/*
+
+work needed
 
     Queue<Integer> stackOfVertex = new ArrayDeque<>();
     Stack<Integer> stack = new Stack<>();
@@ -93,11 +89,7 @@ public class Graph {
                 }
             }
         }
-
-//        for (int i = 0; i < matrix.length; i++) {
-//            System.out.println(Arrays.toString(matrix[i]));
-//        }
     }
 
-
+*/
 }

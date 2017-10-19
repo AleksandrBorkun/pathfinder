@@ -1,6 +1,8 @@
-package pathfinder;
+package com.ab.algorythm.trash;
 
 public class Vertex {
+
+	/* DEPRECATED
 	private String label;
 	private boolean isVisited;;
 
@@ -20,4 +22,6 @@ public class Vertex {
     public void setVisited(boolean isVisited) {
         this.isVisited = isVisited;
     }
+
+*/
 }

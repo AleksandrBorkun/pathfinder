@@ -1,11 +1,7 @@
-package pathfinder;
-
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Queue;
+package com.ab.algorythm.trash;
 
 public class FinderIMPL {
-
+/* WORK NEEDED
     private static Graph graph;
     private static int[] resultMatrix;
     private static Vertex[] vertexArray;
