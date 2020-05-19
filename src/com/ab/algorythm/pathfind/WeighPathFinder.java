@@ -29,6 +29,14 @@ public class WeighPathFinder {
                 }
             }
         }
+        List<Integer> max = new ArrayList<>();
+        restoreLongestPath(cameFromMap, from, new ArrayList<Integer>(), max);
+
+
+        System.out.println("Abstract Logest Path: ");
+        max.forEach(v-> System.out.print(v+"->"));
+        System.out.println();
+        System.out.println("Shorest Path to the Point: ");
         current = to;
         ArrayList<Integer> path = new ArrayList<>();
         path.add(to);
@@ -38,6 +46,22 @@ public class WeighPathFinder {
         }
         Collections.reverse(path);
         return path;
+    }
+
+    public static void restoreLongestPath(Map<Integer, Integer> map, int from, List<Integer> l, List<Integer> max){
+        l.add(from);
+        map.forEach((To, CameFrom) -> {
+            if(CameFrom == from){
+                List<Integer> t = new ArrayList<>();
+                t.addAll(l);
+
+                restoreLongestPath(map, To, t, max);
+            }
+        });
+        if(l.size() > max.size()){
+            max.clear();
+            max.addAll(l);
+        }
     }
 
     private static void setVisitedTrue(int place){
